@@ -444,7 +444,7 @@ class Dynamic_Featured_Image
         <div class="dfiLinks">
 
             <!-- FIXED echo to prevent XSS -->
-            <a href="javascript:void(0)" data-id="<?php echo esc_attr($featured_id) ?>" ;
+            <a href="javascript:void(0)" data-id="<?php echo esc_attr($featured_id) ?>"
                 data-id-local="<?php echo esc_attr($this->get_number_translation($featured_id + 1)) ?>"
                 class="dfiAddNew dashicons dashicons-plus" title="<?php echo __('Add New', self::TEXT_DOMAIN) ?>"></a>
             <a href="javascript:void(0)" class="dfiRemove dashicons dashicons-minus"
