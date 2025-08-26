@@ -406,9 +406,10 @@ class Dynamic_Featured_Image
         $dfi_empty          = is_null($featured_img_trimmed) ? 'dfiImgEmpty' : '';
 
         return "<a href='javascript:void(0)' class='dfiFeaturedImage{$has_featured_image}' title='" . __('Set Featured Image', self::TEXT_DOMAIN) . "' data-post-id='" . $post_id . "' data-attachment-id='" . $attachment_id . "'><span class='dashicons dashicons-camera'></span></a><br/>
-            <img src='" . $thumbnail . "' class='dfiImg {$dfi_empty}'/>
+            <img src='" . esc_url($thumbnail) . "' class='dfiImg {$dfi_empty}'/>
             <div class='dfiLinks'>
-                <a href='javascript:void(0)' data-id='{$featured_id}' data-id-local='" . $this->get_number_translation($featured_id + 1) . "' class='dfiAddNew dashicons dashicons-plus' title='" . __('Add New', self::TEXT_DOMAIN) . "'></a>
+                <!-- FIXED output to prevent XSS -->
+                <a href='javascript:void(0)' data-id='" . esc_attr($featured_id) . "' data-id-local='" . esc_attr($this->get_number_translation($featured_id + 1)) . "' class='dfiAddNew dashicons dashicons-plus' title='" . __('Add New', self::TEXT_DOMAIN) . "'></a>
                 <a href='javascript:void(0)' class='dfiRemove dashicons dashicons-minus' title='" . __('Remove', self::TEXT_DOMAIN) . "'></a>
             </div>
             <div class='dfiClearFloat'></div>
